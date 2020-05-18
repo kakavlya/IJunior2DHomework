@@ -79,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision " + collision);
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {
             ResetPlayerPosition();
