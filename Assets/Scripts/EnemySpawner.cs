@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] _spawnPoints;
     
 
-    void Start()
+    private void Start()
     {
         _spawnPoints = new Transform[_spawnPointsParent.childCount];
         for(int i =0; i < _spawnPointsParent.childCount; i++)

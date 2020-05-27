@@ -13,14 +13,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rBody;
     private bool _isGrounded;
 
-    void Start()
+    private void Start()
     {
         _rBody = GetComponent<Rigidbody2D>();
         _isGrounded = true;
     }
 
     
-    void Update()
+    private void Update()
     {
         _animator.SetBool("IsGrounded", _isGrounded);
         float direction = Input.GetAxis("Horizontal");
@@ -65,19 +65,19 @@ public class PlayerMovement : MonoBehaviour
         _rBody.AddForce(Vector2.up * _jumpForce);
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
             _isGrounded = false;
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
             _isGrounded = true;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy))
         {

@@ -14,13 +14,13 @@ public class Alarm : MonoBehaviour
     private float _ringingTime;
     private bool _volumeIsRising;
 
-    void Start()
+    private void Start()
     {
         _ringingTime = 0;
         _isRinging = false;
         _volumeIsRising = true;
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Thief>(out Thief thief))
         {
@@ -48,7 +48,7 @@ public class Alarm : MonoBehaviour
         _ringingTime = 0;
     }
 
-    public void Update()
+    private void Update()
     {
         if (_isRinging)
         {

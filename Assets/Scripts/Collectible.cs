@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    [SerializeField] Animator _animator;
+    [SerializeField] private Animator _animator;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
