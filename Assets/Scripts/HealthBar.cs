@@ -16,6 +16,9 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         _updatedHealth = _health = 50f;
+        _maxHealth = _maxHealth == 0 ? 100 : _maxHealth;
+        _incrementStep = _incrementStep == 0 ? 10 : _incrementStep;
+        _updateSpeed = _updateSpeed == 0 ? 2 : _updateSpeed;
         _healthBar.value = _health;
     }
 
