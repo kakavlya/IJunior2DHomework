@@ -1,17 +1,18 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class HealthBarScript : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [SerializeField]private Slider _healthBar;
     [SerializeField]private float _updateSpeed;
+    [SerializeField]private float _minHealth;
+    [SerializeField]private float _maxHealth;
+    [SerializeField]private float _incrementStep;
     private float _updatedHealth;
     private float _health;
-    
 
-    // Start is called before the first frame update
     private void Start()
     {
         _updatedHealth = _health = 50f;
@@ -20,10 +21,10 @@ public class HealthBarScript : MonoBehaviour
 
     private void Update()
     {
-        UpdateHealth();
+        UpdateHealthDisplay();
     }
 
-    private void UpdateHealth()
+    private void UpdateHealthDisplay()
     {
         if (Mathf.Approximately(_updatedHealth, _health))
             return;
@@ -34,13 +35,13 @@ public class HealthBarScript : MonoBehaviour
 
     public void AddHealth()
     {
-        if(_health <= 100)
-            _updatedHealth = _health + 10;
+        if(_health <= _maxHealth)
+            _updatedHealth = _health + _incrementStep;
     }
 
     public void ReduceHealth()
     {
-        if(_health >= 0)
-            _updatedHealth = _health - 10;
+        if(_health >= _minHealth)
+            _updatedHealth = _health - _incrementStep;
     }
 }
